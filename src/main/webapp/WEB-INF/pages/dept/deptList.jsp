@@ -31,7 +31,8 @@
 						</div>
 						<button type="submit" class="btn btn-round btn-info" id="search_but">检索</button>
 						<button type="button" class="btn btn-round btn-default" id="clean_but">清空</button>
-						<button type="button" class="btn  btn-info" onclick="location.href='/Spring_Project_war/deptInsert.jsp'" id="add_but" style="margin-left:50px;">添加部门</button>
+						<button type="button" class="btn  btn-info" onclick="location.href='insertPage'"
+								id="add_but" style="margin-left:50px;">添加部门</button>
 						<button type="button" class="btn  btn-success" onclick="updateDepartment()" id="edit_but">编辑部门</button>
                         <button type="button" class="btn  btn-success" onclick="deleteDepartment()">删除部门</button>
 					</form>
@@ -66,7 +67,7 @@
 					 <input name="ids" value="${dept.id}" id="sel" type="checkbox">
 				 </td>
 				 <td>${dept.id}</td>
-				 <td>${dept.departno}</td>
+				 <td>${dept.departNo}</td>
 				 <td>${dept.name}</td>
 				 <td>${dept.description}<br></td>
 			 </tr>
@@ -97,10 +98,10 @@
 						<span class="thispage" id="thisPage" style="height: 18px; padding-top: 2px !important;"> ${pageNum} </span>
 					</a>
 				</li>
-				<c:if test="${pageNum<totalPages}">
+				<c:if test="${pageNum<countMap.totalPage}">
 			    	<li class="prev"><a href="deptList?pageNum=${pageNum+1}">下一页</a></li>
 				</c:if>
-				<li class="prev"><a href="deptList?pageNum=${totalPages}">尾页</a></li>
+				<li class="prev"><a href="deptList?pageNum=${countMap.totalPage}">尾页</a></li>
 			</ul>
 		</div>
 	</div>

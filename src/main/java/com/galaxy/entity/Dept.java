@@ -17,7 +17,7 @@ public class Dept implements Serializable {
     /**
     * 部门编号
     */
-    private String departno;
+    private String departNo;
     /**
     * 部门名称
     */
@@ -36,12 +36,12 @@ public class Dept implements Serializable {
         this.id = id;
     }
 
-    public String getDepartno() {
-        return departno;
+    public String getDepartNo() {
+        return departNo;
     }
 
-    public void setDepartno(String departno) {
-        this.departno = departno;
+    public void setDepartNo(String departNo) {
+        this.departNo = departNo;
     }
 
     public String getName() {

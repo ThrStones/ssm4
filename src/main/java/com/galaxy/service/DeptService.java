@@ -11,4 +11,6 @@ public interface DeptService {
 
     public Map<String,Integer> queryTotalPage(int pageSize);
 
+    public void insert(Dept dept);
+
 }

@@ -7,6 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -51,5 +52,16 @@ public class DeptController {
         return "dept/deptList";
     }
 
+    @GetMapping("insertPage")
+    public String insertPage(){
+        return "dept/deptInsert";
+    }
+
+
+    @PostMapping("insert")
+    public String insert(Dept dept){
+        deptService.insert(dept);
+        return "redirect:deptList?pageNum=1";
+    }
 
 }

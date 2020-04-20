@@ -37,4 +37,9 @@ public class DeptServiceImpl implements DeptService {
         countMap.put("totalPage",totalPage);
         return countMap;
     }
+
+    @Override
+    public void insert(Dept dept) {
+        deptDao.insert(dept);
+    }
 }
