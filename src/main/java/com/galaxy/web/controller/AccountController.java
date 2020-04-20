@@ -38,7 +38,8 @@ public class AccountController {
             return "forward:/WEB-INF/pages/account/login.jsp";
         } else {
             session.setAttribute("loginAccount",loginAccount);
-            return "redirect:list";
+            //跳转到部门的列表显示页面
+            return "redirect:/dept/deptList?pageNum=1";
         }
     }
 

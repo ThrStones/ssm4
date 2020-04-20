@@ -10,11 +10,11 @@
 <meta name="author" content="Custom Theme">
 
 <title>小莱信息化管理系统登录</title>
-<link href="../css/bootstrap.css" rel="stylesheet">
-<link href="../css/bootstrap-reset.css" rel="stylesheet">
-<link href="../css/font-awesome.css" rel="stylesheet">
-<link href="../css/style.css" rel="stylesheet">
-<link href="../css/style-responsive.css" rel="stylesheet">
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="/css/bootstrap-reset.css" rel="stylesheet">
+<link href="/css/font-awesome.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+<link href="/css/style-responsive.css" rel="stylesheet">
 </head>
 <body class="login-screen">
 	<!-- BEGIN SECTION -->

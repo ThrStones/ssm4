@@ -37,6 +37,9 @@
             <!--不需要拦截的请求-->
             <mvc:exclude-mapping path="/account/loginPage"/>
             <mvc:exclude-mapping path="/account/login"/>
+            <mvc:exclude-mapping path="/css/**"/>
+            <mvc:exclude-mapping path="/images/**"/>
+            <mvc:exclude-mapping path="/js/**"/>
             <bean class="com.galaxy.web.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
