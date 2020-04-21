@@ -60,4 +60,13 @@ public class Dept implements Serializable {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Dept{" +
+                "id=" + id +
+                ", departNo='" + departNo + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

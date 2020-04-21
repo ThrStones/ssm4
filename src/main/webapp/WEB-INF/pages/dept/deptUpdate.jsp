@@ -23,7 +23,7 @@
 <section class="wrapper">
 	
 	<div class="row">
-		<div class="col-lg-12" id="department_main">
+		<div class="col-lg-12" id="dept_main">
 
 <div class="col-md-12">
 	<section class="panel">
@@ -31,13 +31,14 @@
 			<span class="label label-primary">修改部门</span> <span class="tools pull-right"> </span>
 		</header>
 		<div class="panel-body">
+			<p class="l_message" style="color: red;">${ errorMsg }</p>
 			<form novalidate="novalidate" class="form-horizontal tasi-form" method="post" id="addForm"
-				  action="/Spring_Project_war/dept_update">
-				<input name="id" value="${department.id}" type="hidden">
+				  action="update">
+				<input name="id" value="${dept.id}" type="hidden">
 				<div class="form-group">
 					<label class="control-label col-md-3">部门名称</label>
 					<div class="col-md-3 col-xs-11">
-						<input name="name" value="${department.name}" id="name" class="form-control form-control-inline input-medium " style="width:230px;" type="text">
+						<input name="name" value="${dept.name}" id="name" class="form-control form-control-inline input-medium " style="width:230px;" type="text">
 						<span class="help-block" style="color: red;"></span>
 					</div>
 				</div>
@@ -45,7 +46,7 @@
 					<label class="control-label col-md-3">部门描述</label>
 					<div class="col-md-9">
 
-    <textarea name="description" cols="" rows="5" id="department_comment" class="wysihtml5 form-control">${department.description}</textarea>
+    <textarea name="description" cols="" rows="5" id="dept_comment" class="wysihtml5 form-control">${dept.description}</textarea>
 
 						<span class="help-block" style="color: red;"></span>
 					</div>

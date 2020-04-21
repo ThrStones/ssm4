@@ -31,19 +31,20 @@
 			<span class="label label-primary">添加部门</span> <span class="tools pull-right"> </span>
 		</header>
 		<div class="panel-body">
+			<p class="l_message" style="color: red;">${ errorMsg }</p>
 			<form novalidate="novalidate" class="form-horizontal tasi-form" method="post" id="addForm"
 				  action="insert">
 				<div class="form-group">
 					<label class="control-label col-md-3">部门编号</label>
 					<div class="col-md-3 col-xs-11">
-						<input name="departNo" id="no" class="form-control form-control-inline input-medium " style="width:230px;" type="text">
+						<input name="departNo" value="${ dept.departNo }" id="no" class="form-control form-control-inline input-medium " style="width:230px;" type="text">
 						<span class="help-block" style="color: red;"></span>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-md-3">部门名称</label>
 					<div class="col-md-3 col-xs-11">
-						<input name="name" id="name" class="form-control form-control-inline input-medium " style="width:230px;" type="text">
+						<input name="name" value="${ dept.name }" id="name" class="form-control form-control-inline input-medium " style="width:230px;" type="text">
 						<span class="help-block" style="color: red;"></span>
 					</div>
 				</div>
@@ -52,7 +53,7 @@
 					<div class="col-md-9">
 	       
     
-    <textarea name="description" cols="" rows="5" id="department_comment" class="wysihtml5 form-control"></textarea>
+    <textarea name="description" cols="" rows="5" id="department_comment" class="wysihtml5 form-control">${ dept.description }</textarea>
 
 
 

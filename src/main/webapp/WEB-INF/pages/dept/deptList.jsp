@@ -24,9 +24,10 @@
 		<div class="col-lg-12">
 			<section class="panel">
 				<div class="panel-body">
-					<form class="form-inline" role="form" method="post" action="/Spring_Project_war/dept_list?pageNum=1">
+					<form class="form-inline" role="form" method="get" action="deptList">
 						<div class="form-group">
 							<label class="sr-only" for="name">部门名称</label>
+							<input name="pageNum" value="1" type="hidden">
 							<input class="form-control" id="name" name="name" placeholder="部门名称" type="text">
 						</div>
 						<button type="submit" class="btn btn-round btn-info" id="search_but">检索</button>
@@ -60,7 +61,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		 <form action="/Spring_Project_war/dept_delete" id="deleteForm" method="post">
+		 <form action="delete" id="deleteForm" method="post">
 			 <c:forEach items="${deptList}" var="dept">
 			 <tr>
 				 <td style="text-align: center">
@@ -129,14 +130,12 @@
 	   var flag=false;
 	    for(var i=0;i<r.length;i++){
 	         if(r[i].checked){
-	     
 	        	   flag=true;
 	        	   break;
 	       }
 	    }      
 	   if(flag){
 			$('#deleteForm').submit();
-		  
 	   }else{
 		   alert("请选择一条数据删除！！！")
 	   }
@@ -144,13 +143,11 @@
    }
    
  function updateDepartment(){
-	   
-	   var r=document.getElementsByName("ids"); 
+	   var r=document.getElementsByName("ids");
 	   var flag=false;
 	   var num=0;
 	    for(var i=0;i<r.length;i++){
 	         if(r[i].checked){
-	     
 	        	   flag=true;
 	               num++;
 	       }
@@ -162,8 +159,9 @@
 			alert("不能选择多条数据修改！！！")
 	   }
 	   else{
-		   $("#deleteForm").attr('action',"/Spring_Project_war/dept_queryById");
-			$('#deleteForm').submit();
+		   $("#deleteForm").attr('action',"queryById");
+		   $("#deleteForm").attr('method',"GET");
+		   $('#deleteForm').submit();
 	   }
 	   
    }

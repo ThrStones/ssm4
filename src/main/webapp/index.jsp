@@ -9,8 +9,9 @@
 <html>
 <head>
     <title>Title</title>
+    <meta http-equiv="refresh" content="0; url=/account/loginPage">
 </head>
 <body>
-<h1><a href="testBean/queryAllByPages?pageNum=1">分页查询所有</a></h1>
+<%--<h1><a href="testBean/queryAllByPages?pageNum=1">分页查询所有</a></h1>--%>
 </body>
 </html>
