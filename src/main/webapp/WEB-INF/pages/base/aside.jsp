@@ -14,13 +14,13 @@
                 </a>
 <ul style="display: block;" id="sub_0" class="sub">
     <li>
-        <a class="active" href="/Spring_Project_war/emp_list" title="员工管理">员工管理</a>
+        <a href="/emp/empList?pageNum=1" title="员工管理">员工管理</a>
     </li>
     <li>
-        <a href="/Spring_Project_war/meeting_list" title="会议管理">会议管理</a>
+        <a href="/meeting/meetingList?pageNum=1" title="会议管理">会议管理</a>
     </li>
     <li>
-        <a href="/Spring_Project_war/dept_list?current=1" title="部门管理">部门管理</a>
+        <a href="${pageContext.request.contextPath}/dept/deptList?pageNum=1" title="部门管理">部门管理</a>
     </li>
 </ul>
             </li>

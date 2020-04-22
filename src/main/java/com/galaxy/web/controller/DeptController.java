@@ -93,8 +93,8 @@ public class DeptController {
         } else {
             //修改失败
             model.addAttribute("errorMsg","修改失败！！");
-            Dept dept2 = deptService.queryById(dept.getId());
-            model.addAttribute("dept",dept2);
+            //Dept dept2 = deptService.queryById(dept.getId());
+            model.addAttribute("dept",dept);
             return "dept/deptUpdate";
         }
     }
