@@ -45,7 +45,7 @@ public interface EmpDao {
     @Select("select * from emp where id=#{id}")
     public Emp queryById(int id);
 
-    @Update("update emp set sex=#{sex}, phone=#{phone}, dept=#{dept}, role=#{role}, state=#{state} where id=#{id}")
+    @Update("update emp set name=#{name}, sex=#{sex}, phone=#{phone}, dept=#{dept}, role=#{role}, state=#{state} where id=#{id}")
     public int update(Emp emp);
 
 }

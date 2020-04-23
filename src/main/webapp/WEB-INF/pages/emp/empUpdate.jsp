@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html style="overflow: hidden;" lang="en"><head>
@@ -49,15 +50,15 @@
 		</header>
 		<div class="panel-body">
 <form novalidate="novalidate" class="form-horizontal tasi-form"
-	  method="post" id="addForm"
-	  action="/Spring_Project_war/emp_update">
-	 <input name="id" value="${employee.id}" type="hidden">
+	  method="post" id="addForm" action="update">
+	 <input name="id" value="${emp.id}" type="hidden">
+	 <input name="state" value="${emp.state}" type="hidden">
 	<div class="form-group">
 		<label class="control-label col-md-3">员工姓名</label>
 		<div class="col-md-3 col-xs-11">
-			<input name="name" value="${ employee.name }" id="name"
+			<input name="name" value="${ emp.name }" id="name"
 				   class="form-control form-control-inline input-medium
-				   default-date-picker" style="width:80px;" type="text" disabled>
+				   default-date-picker" style="width:80px;" type="text">
 			<span class="help-block" style="color: red;"></span>
 		</div>
 	</div>
@@ -74,7 +75,7 @@
 	<div class="form-group">
 		<label class="control-label col-md-3">联系电话</label>
 		<div class="col-md-3 col-xs-11">
-			<input name="phone" id="phone" value="${ employee.phone }"
+			<input name="phone" id="phone" value="${ emp.phone }"
 				   class="form-control form-control-inline input-medium default-date-picker"
 				   style="width:120px;" type="text">
 			<span class="help-block" style="color: red;"></span>
@@ -83,11 +84,12 @@
 	<div class="form-group">
 		<label class="control-label col-md-3">所属部门</label>
 		<div class="col-md-3 col-xs-11">
-			<select name="department" id="department"
+			<select name="dept" id="department"
 					class="form-control form-control-inline input-medium default-date-picker"
 					style="width:240px;">
-			  <option value="人事部">人事部</option>
-			  <option value="研发部">研发部</option>
+				<c:forEach items="${ deptList }" var="dept">
+					<option value="${ dept.name }">${ dept.name }</option>
+				</c:forEach>
 			</select>
 			<span class="help-block" style="color: red;"></span>
 		</div>
@@ -125,10 +127,9 @@
   $(".knob").knob();
 
   window.onload=function () {
-	  $("#authority").find("option[value='${employee.role}']").attr("selected","selected");
-	  $("#department").find("option[value='${employee.department}']").attr("selected","selected");
-
-	  $("input[value='${employee.sex}']").attr("checked","checked");
+	  $("#authority").find("option[value='${emp.role}']").attr("selected","selected");
+	  $("#department").find("option[value='${emp.dept}']").attr("selected","selected");
+	  $("input[value='${emp.sex}']").attr("checked","checked");
   }
 </script>
 

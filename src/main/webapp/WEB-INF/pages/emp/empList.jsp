@@ -177,7 +177,8 @@
 	    }else if(num>1){
 			alert("不能选择多条数据修改！！！")
 	   }else{
-		   $("#deleteForm").attr('action',"/Spring_Project_war/emp_selectOne");
+		   $("#deleteForm").attr('action',"queryById");
+		   $("#deleteForm").attr('method',"GET");
 		   $('#deleteForm').submit();
 	   }
 	   
