@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html style="overflow: hidden;" lang="en"><head>
@@ -50,11 +51,11 @@
 		</header>
 		<div class="panel-body">
 <form novalidate="novalidate" class="form-horizontal tasi-form"
-	  method="post" id="addForm" action="/Spring_Project_war/emp_insert">
+	  method="post" id="addForm" action="insert">
 	<div class="form-group">
 		<label class="control-label col-md-3">员工姓名</label>
 		<div class="col-md-3 col-xs-11">
-			<input name="name" id="name"
+			<input name="name" id="name" value="${ emp.name }"
 				   class="form-control form-control-inline
 				   input-medium default-date-picker" style="width:80px;" type="text">
 			<span class="help-block" style="color: red;"></span>
@@ -73,7 +74,7 @@
 	<div class="form-group">
 		<label class="control-label col-md-3">联系电话</label>
 		<div class="col-md-3 col-xs-11">
-			<input name="phone" id="phone"
+			<input name="phone" id="phone"  value="${ emp.phone }"
 				   class="form-control form-control-inline input-medium default-date-picker" style="width:120px;" type="text">
 			<span class="help-block" style="color: red;"></span>
 		</div>
@@ -81,9 +82,10 @@
 	<div class="form-group">
 		<label class="control-label col-md-3">所属部门</label>
 		<div class="col-md-3 col-xs-11">
-			<select name="department" id="department" class="form-control form-control-inline input-medium default-date-picker" style="width:240px;">
-			  <option selected="selected" value="人事部">人事部</option>
-			  <option value="研发部">研发部</option>
+			<select name="dept" id="department" class="form-control form-control-inline input-medium default-date-picker" style="width:240px;">
+				<c:forEach items="${ deptList }" var="dept">
+					<option value="${ dept.name }">${ dept.name }</option>
+				</c:forEach>
 			</select>
 
 			<span class="help-block" style="color: red;"></span>

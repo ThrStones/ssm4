@@ -39,7 +39,7 @@
 	<button type="submit" class="btn btn-round btn-info" id="search_but">检索</button>
 	<button type="button" class="btn btn-round btn-default" id="clean_but">清空</button>
 	<button type="button" class="btn  btn-info" id="add_but"
-			onclick="location.href='/Spring_Project_war/empInsert.jsp'" style="margin-left:50px;">添加员工</button>
+			onclick="location.href='insertPage'" style="margin-left:50px;">添加员工</button>
 	<button type="button" class="btn  btn-success"
 			onclick="updateUser()" id="edit_but">编辑员工</button>
 	<button type="button" class="btn  btn-success" onclick="deleteUser()">删除员工</button>
@@ -55,13 +55,19 @@
 	<header class="panel-heading">
 		<span class="label label-primary"> 员工信息列表 </span>
 	</header>
+	<c:if test="${ empList.size() == 0}">
+		没有数据可供显示
+	</c:if>
+	<c:if test="${ empList.size() > 0}">
 	<div class="panel-body">
 		<section id="unseen">
-<form action="/Spring_Project_war/emp_delete" id="deleteForm" method="post">
+<form action="delete" id="deleteForm" method="post">
 <table class="table table-bordered table-striped table-condensed" id="userlist">
 	<thead>
 		<tr>
-			<th style="text-align: center"><input name="all" value="true" id="selectAll" style="display:none;" type="checkbox"><input id="__checkbox_selectAll" name="__checkbox_all" value="true" type="hidden"></th>
+			<th style="text-align: center"><input name="all" value="true" id="selectAll" style="display:none;" type="checkbox">
+				<input id="__checkbox_selectAll" name="__checkbox_all" value="true" type="hidden">
+			</th>
 			<th>序号</th>
 			<th>员工号</th>
 			<th>姓名</th>
@@ -124,6 +130,7 @@
 			
 		</section>
 	</div>
+	</c:if>
 </section>
 </div>
 	</div>
@@ -153,7 +160,6 @@
 	   }else{
 		   alert("请选择一条数据删除！！！")
 	   }
-	   
    }
    
  function updateUser(){

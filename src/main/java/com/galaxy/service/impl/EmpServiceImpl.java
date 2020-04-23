@@ -8,6 +8,8 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +42,9 @@ public class EmpServiceImpl implements EmpService {
 
     @Override
     public void insert(Emp emp) {
+        String eNo = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        emp.seteNo(eNo);
+        emp.setState("正常");
         empDao.insert(emp);
     }
 
