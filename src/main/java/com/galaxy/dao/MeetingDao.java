@@ -17,21 +17,21 @@ public interface MeetingDao {
             "select * from meeting " +
             "where 1=1 " +
             "<if test=\"title!=null and title!=''\">" +
-            "<bind title=\"mTitle\" value=\"'%'+title+'%'\"/>" +
+            "<bind name=\"mTitle\" value=\"'%'+title+'%'\"/>" +
             " and title like #{mTitle}" +
             "</if>  order by id desc" +
             "</script>")
-    public List<Meeting> queryAllByPage(@Param("title") String title);
+    public List<Meeting> queryAllByPage(Meeting meeting);
 
     @Select("<script>" +
             "select count(*) from meeting " +
             "where 1=1 " +
             "<if test=\"title!=null and title!=''\">" +
-            "<bind title=\"mTitle\" value=\"'%'+title+'%'\"/>" +
+            "<bind name=\"mTitle\" value=\"'%'+title+'%'\"/>" +
             " and title like #{mTitle}" +
             "</if>  order by id desc" +
             "</script>")
-    public int queryTotalCount(@Param("title") String title);
+    public int queryTotalCount(Meeting meeting);
 
     @Insert("insert into meeting values (0, #{accountId}, #{startTime}, #{endTime}, #{title}, #{content}, #{address})")
     @Options(useGeneratedKeys = true,keyProperty = "id")

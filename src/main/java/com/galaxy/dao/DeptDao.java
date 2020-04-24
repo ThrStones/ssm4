@@ -29,7 +29,7 @@ public interface DeptDao {
             " and name like #{dName}" +
             "</if>  order by id desc" +
             "</script>")
-    public List<Dept> queryAllByPage(String name);
+    public List<Dept> queryAllByPage(Dept dept);
 
     //@Select("select count(*) from dept")
     @Select("<script>" +
@@ -40,7 +40,7 @@ public interface DeptDao {
             " and name like #{dName}" +
             "</if>  order by id desc" +
             "</script>")
-    public int queryTotalCount(String name);
+    public int queryTotalCount(Dept dept);
 
     @Insert("insert into dept values (0, #{departNo}, #{name}, #{description})")
     @Options(useGeneratedKeys = true,keyProperty = "id")

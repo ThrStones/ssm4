@@ -8,12 +8,8 @@ import java.io.Serializable;
  * @author ThrStones
  * @since 2020-04-20 16:46:28
  */
-public class Dept implements Serializable {
+public class Dept extends Base implements Serializable {
     private static final long serialVersionUID = 502547787621435411L;
-    /**
-    * 唯一主键
-    */
-    private Integer id;
     /**
     * 部门编号
     */
@@ -27,14 +23,6 @@ public class Dept implements Serializable {
     */
     private String description;
 
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getDepartNo() {
         return departNo;
@@ -63,7 +51,6 @@ public class Dept implements Serializable {
     @Override
     public String toString() {
         return "Dept{" +
-                "id=" + id +
                 ", departNo='" + departNo + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

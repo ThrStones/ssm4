@@ -8,12 +8,9 @@ import java.io.Serializable;
  * @author ThrStones
  * @since 2020-04-22 10:28:15
  */
-public class Emp implements Serializable {
+public class Emp extends Base implements Serializable {
     private static final long serialVersionUID = -68662768932252435L;
-    /**
-    * 员工id
-    */
-    private Integer id;
+
     /**
     * 员工编号
     */
@@ -42,15 +39,6 @@ public class Emp implements Serializable {
     * 员工状态
     */
     private String state;
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String geteNo() {
         return eNo;

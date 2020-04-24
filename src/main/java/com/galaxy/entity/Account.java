@@ -9,13 +9,10 @@ import java.util.Date;
  * @author ThrStones
  * @since 2020-04-20 10:37:09
  */
-public class Account implements Serializable {
+public class Account extends Base implements Serializable {
     private static final long serialVersionUID = -54620413683763279L;
-    
-    private Integer id;
-    
+
     private String name;
-    
     private String password;
 
     private Date createTime;
@@ -24,13 +21,6 @@ public class Account implements Serializable {
     private boolean deleteFlag;
     private String remark;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -51,7 +41,6 @@ public class Account implements Serializable {
     @Override
     public String toString() {
         return "Account{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 '}';

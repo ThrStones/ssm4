@@ -27,10 +27,10 @@ public class EmpController extends BaseController {
     @GetMapping("empList")
     public String queryAllByPage(int pageNum, Emp emp, Model model) {
 
-        List<Emp> empList = empService.queryAllByPage(emp, pageNum, pageSize);
+        List<Emp> empList = empService.queryAllByPage(pageNum, pageSize, emp);
         model.addAttribute("empList", empList);
 
-        Map<String, Integer> countMap = empService.queryTotalPage(emp, pageNum, pageSize);
+        Map<String, Integer> countMap = empService.queryTotalPage(pageSize, emp);
         model.addAttribute("countMap", countMap);
         model.addAttribute("pageNum", pageNum);
 
@@ -67,7 +67,7 @@ public class EmpController extends BaseController {
     }
 
     @GetMapping("queryById")
-    public String queryById(int ids,Model model){
+    public String queryById(int ids, Model model) {
         Emp emp = empService.queryById(ids);
         model.addAttribute("emp", emp);
         List<Dept> deptList = queryAllDept();
@@ -76,9 +76,9 @@ public class EmpController extends BaseController {
     }
 
     @PostMapping("update")
-    public String update(Emp emp,Model model){
+    public String update(Emp emp, Model model) {
         int count = empService.update(emp);
-        if (count>0){
+        if (count > 0) {
             return "redirect:empList?pageNum=1";
         } else {
             model.addAttribute("errorMsg", "修改失败");
@@ -91,12 +91,11 @@ public class EmpController extends BaseController {
     }
 
 
-
     private List<Dept> queryAllDept() {
         //查出数据总条数
-        Integer totalCount = deptService.queryTotalPage(pageSize, "").get("totalCount");
+        Integer totalCount = deptService.queryTotalPage(pageSize, new Dept()).get("totalCount");
         //只分一页，把pageSize设置和总条数相等
-        return deptService.queryAllByPage(1, totalCount, "");
+        return deptService.queryAllByPage(1, totalCount, new Dept());
     }
 
 

@@ -9,11 +9,10 @@ import java.io.Serializable;
  * @author ThrStones
  * @since 2020-04-24 08:44:20
  */
-public class Meeting implements Serializable {
+public class Meeting extends Base implements Serializable {
     private static final long serialVersionUID = -50975837883029092L;
     
-    private Integer id;
-    
+
     private Integer accountId;
     
     private Date startTime;
@@ -25,15 +24,6 @@ public class Meeting implements Serializable {
     private String content;
     
     private String address;
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getAccountId() {
         return accountId;
