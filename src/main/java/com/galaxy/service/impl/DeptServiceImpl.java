@@ -13,8 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-//多例模式
-//@Scope("prototype")
 public class DeptServiceImpl implements DeptService {
 
     @Resource
