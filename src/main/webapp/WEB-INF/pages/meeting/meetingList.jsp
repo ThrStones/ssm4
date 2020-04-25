@@ -75,8 +75,8 @@
 						<input name="ids" value="${ meeting.id }" id="sel" type="checkbox">
 					</td>
 					<td>${ meeting.id }</td>
-					<%--<td>${ meeting.employee.name }</td>--%>
-					<td>${ meeting.accountId }</td>
+					<td>${ meeting.account.name }</td>
+					<%--<td>${ meeting.accountId }</td>--%>
 					<td>
 						<fmt:formatDate value="${ meeting.startTime }" pattern="yyyy-MM-dd HH:mm:ss"/>
 					</td>

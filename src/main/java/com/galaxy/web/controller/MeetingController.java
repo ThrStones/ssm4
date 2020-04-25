@@ -56,7 +56,7 @@ public class MeetingController extends BaseController {
 
     @PostMapping("delete")
     public String delete(int[] ids) {
-        meetingService.delete(ids);
+        meetingService.delete(ids,"meeting");
         return "redirect:meetingList?pageNum=1";
     }
 

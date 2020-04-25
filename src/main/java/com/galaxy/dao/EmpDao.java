@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface EmpDao {
+public interface EmpDao extends BaseDao<Emp>{
 
     @Select("<script>" +
             "select * from emp " +
@@ -38,9 +38,6 @@ public interface EmpDao {
     @Insert("insert into emp values (0, #{eNo}, #{name}, #{sex}, #{phone}, #{dept}, #{role}, #{state})")
     @Options(useGeneratedKeys = true,keyProperty = "id")
     public void insert(Emp emp);
-
-    @Delete("delete from emp where id=#{id}")
-    public void delete(int id);
 
     @Select("select * from emp where id=#{id}")
     public Emp queryById(int id);

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class MeetingServiceImpl implements MeetingService {
+public class MeetingServiceImpl extends BaseServiceImpl<Meeting> implements MeetingService {
 
     @Resource
     private MeetingDao meetingDao;
@@ -43,12 +43,6 @@ public class MeetingServiceImpl implements MeetingService {
         meetingDao.insert(meeting);
     }
 
-    @Override
-    public void delete(int[] ids) {
-        for (int id : ids) {
-            meetingDao.delete(id);
-        }
-    }
 
     @Override
     public Meeting queryById(int id) {

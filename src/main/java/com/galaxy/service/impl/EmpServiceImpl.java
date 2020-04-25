@@ -2,6 +2,7 @@ package com.galaxy.service.impl;
 
 import com.galaxy.dao.EmpDao;
 import com.galaxy.entity.Emp;
+import com.galaxy.entity.Meeting;
 import com.galaxy.service.EmpService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class EmpServiceImpl implements EmpService {
+public class EmpServiceImpl extends BaseServiceImpl<Emp> implements EmpService {
 
     @Resource
     private EmpDao empDao;
@@ -46,13 +47,6 @@ public class EmpServiceImpl implements EmpService {
         emp.seteNo(eNo);
         emp.setState("正常");
         empDao.insert(emp);
-    }
-
-    @Override
-    public void delete(int[] ids) {
-        for (int id : ids) {
-            empDao.delete(id);
-        }
     }
 
     @Override
