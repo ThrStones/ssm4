@@ -34,7 +34,7 @@
 		<div class="panel-body">
 <form novalidate="novalidate" class="form-horizontal tasi-form" method="post" id="addForm"
 	  action="insert">
-	<input type="hidden" name="accountId" value="${ sessionScope.loginAccount.id }">
+	<input type="hidden" name="account.id" value="${ sessionScope.loginAccount.id }">
 	<div class="form-group">
 		<label class="control-label col-md-3">开始时间：</label>
 		<div class="col-md-3 col-xs-11">

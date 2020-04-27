@@ -13,8 +13,9 @@ public class Meeting extends Base implements Serializable {
     private static final long serialVersionUID = -50975837883029092L;
     
 
-    private Integer accountId;
-    
+//    private Integer accountId;
+    private Account account;
+
     private Date startTime;
     
     private Date endTime;
@@ -25,12 +26,12 @@ public class Meeting extends Base implements Serializable {
     
     private String address;
 
-    public Integer getAccountId() {
-        return accountId;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setAccountId(Integer accountId) {
-        this.accountId = accountId;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public Date getStartTime() {

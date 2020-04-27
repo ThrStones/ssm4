@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class DeptServiceImpl extends BaseServiceImpl<Dept> {
+public class DeptServiceImpl extends BaseServiceImpl<Dept> implements DeptService{
 
     @Resource
     private DeptDao deptDao;

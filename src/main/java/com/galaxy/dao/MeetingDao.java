@@ -2,7 +2,9 @@ package com.galaxy.dao;
 
 import com.galaxy.entity.Meeting;
 import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.mapping.FetchType;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,7 +23,19 @@ public interface MeetingDao {
             " and title like #{mTitle}" +
             "</if>  order by id desc" +
             "</script>")
+    @Results({
+            @Result(id = true, property = "id", column = "id"),
+            @Result(property = "startTime", column = "startTime"),
+            @Result(property = "endTime", column = "endTime"),
+            @Result(property = "title", column = "title"),
+            @Result(property = "content", column = "content"),
+            @Result(property = "address", column = "address"),
+            @Result(property = "account", column = "accountId",
+                    one = @One(select = "com.galaxy.dao.AccountDao.queryById",
+                    fetchType = FetchType.EAGER ))
+    })
     public List<Meeting> queryAllByPage(Meeting meeting);
+
 
     @Select("<script>" +
             "select count(*) from meeting " +
@@ -33,8 +47,8 @@ public interface MeetingDao {
             "</script>")
     public int queryTotalCount(Meeting meeting);
 
-    @Insert("insert into meeting values (0, #{accountId}, #{startTime}, #{endTime}, #{title}, #{content}, #{address})")
-    @Options(useGeneratedKeys = true,keyProperty = "id")
+    @Insert("insert into meeting values (0, #{account.id}, #{startTime}, #{endTime}, #{title}, #{content}, #{address})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     public void insert(Meeting meeting);
 
     @Delete("delete from meeting where id=#{id}")
@@ -45,7 +59,6 @@ public interface MeetingDao {
 
     @Update("update meeting set startTime=#{startTime},endTime=#{endTime},title=#{title},content=#{content},address=#{address} where id=#{id}")
     public int update(Meeting meeting);
-
 
 
 }
