@@ -7,18 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface DeptDao {
+public interface DeptDao extends BaseDao<Dept>{
 
-
-    /*    <select id="queryByConditionAndPages" resultType="department">
-        select * from department
-        <where>
-            <if test="department.name!=null and department.name!=''">
-                <bind name="dName" value="'%'+department.name+'%'"/>
-                name like #{dName}
-            </if>
-        </where>
-    </select>*/
 
     //@Select("select * from dept order by id desc")
     @Select("<script>" +
@@ -45,9 +35,6 @@ public interface DeptDao {
     @Insert("insert into dept values (0, #{departNo}, #{name}, #{description})")
     @Options(useGeneratedKeys = true,keyProperty = "id")
     public void insert(Dept dept);
-
-    @Delete("delete from dept where id=#{id}")
-    public void delete(int id);
 
     @Select("select * from dept where id=#{id}")
     public Dept queryById(int id);

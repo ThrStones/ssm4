@@ -1,15 +1,35 @@
 package com.galaxy.service.impl;
 
+import com.galaxy.dao.BaseDao;
+import com.galaxy.entity.Dept;
 import com.galaxy.service.BaseService;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class BaseServiceImpl<T> implements BaseService<T> {
 
     //1、如何引入Dao来进行操作
     //2、哪些方法是可以用通用方法的
     //3、不能使用通用方法的，怎么处理，单独写？还是其他方法？
+
+    @Resource
+    private BaseDao<T> baseDao;
+
+    @Override
+    public void delete(int[] ids, String tableName) {
+        for (int id : ids) {
+            baseDao.delete(id, tableName);
+        }
+    }
+
+    @Override
+    public T queryById(int id) {
+        return null;
+    }
 
     @Override
     public List queryAllByPage(int pageNum, int pageSize, T t) {
@@ -25,16 +45,6 @@ public class BaseServiceImpl<T> implements BaseService<T> {
     @Override
     public void insert(T t) {
 
-    }
-
-    @Override
-    public void delete(int[] ids) {
-
-    }
-
-    @Override
-    public T queryById(int id) {
-        return null;
     }
 
     @Override

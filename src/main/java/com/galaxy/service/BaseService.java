@@ -11,7 +11,7 @@ public interface BaseService<T> {
 
     public void insert(T t);
 
-    public void delete(int[] ids);
+    public void delete(int[] ids, String tableName);
 
     public T queryById(int id);
 

@@ -72,7 +72,7 @@ public class DeptController {
 
     @PostMapping("delete")
     public String delete(int[] ids){
-        deptService.delete(ids);
+        deptService.delete(ids,"dept");
         return "redirect:deptList?pageNum=1";
     }
 

@@ -39,7 +39,7 @@ public class EmpController extends BaseController {
 
     @PostMapping("delete")
     public String delete(int[] ids) {
-        empService.delete(ids);
+        empService.delete(ids,"emp");
         return "redirect:empList?pageNum=1";
     }
 
