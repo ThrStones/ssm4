@@ -13,7 +13,7 @@ import java.util.List;
  * @author ThrStones
  * @since 2020-04-24 08:12:45
  */
-public interface MeetingDao {
+public interface MeetingDao extends BaseDao<Meeting>{
 
     @Select("<script>" +
             "select * from meeting " +
@@ -50,9 +50,6 @@ public interface MeetingDao {
     @Insert("insert into meeting values (0, #{account.id}, #{startTime}, #{endTime}, #{title}, #{content}, #{address})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     public void insert(Meeting meeting);
-
-    @Delete("delete from meeting where id=#{id}")
-    public void delete(int id);
 
     @Select("select * from meeting where id=#{id}")
     public Meeting queryById(int id);

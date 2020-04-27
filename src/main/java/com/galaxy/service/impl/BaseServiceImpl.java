@@ -13,14 +13,15 @@ import java.util.Map;
 public class BaseServiceImpl<T> implements BaseService<T> {
 
     //1、如何引入Dao来进行操作
-    //2、哪些方法是可以用通用方法的
-    //3、不能使用通用方法的，怎么处理，单独写？还是其他方法？
+    //2、哪些方法是可以用通用方法的--所有
+    //3、不能使用通用方法的，怎么处理，单独写？还是其他方法？--单独写
 
     @Resource
     private BaseDao<T> baseDao;
 
     @Override
     public void delete(int[] ids, String tableName) {
+        System.out.println("调用的是通用的删除方法！");
         for (int id : ids) {
             baseDao.delete(id, tableName);
         }

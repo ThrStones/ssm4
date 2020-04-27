@@ -19,6 +19,14 @@ public class DeptServiceImpl extends BaseServiceImpl<Dept> implements DeptServic
     private DeptDao deptDao;
 
     @Override
+    public void delete(int[] ids, String tableName) {
+        System.out.println("调用的是Dept的删除方法！");
+        for (int id : ids) {
+            deptDao.delete(id, tableName);
+        }
+    }
+
+    @Override
     public List<Dept> queryAllByPage(int pageNum, int pageSize, Dept dept) {
 
         PageHelper.startPage(pageNum, pageSize);
@@ -41,13 +49,6 @@ public class DeptServiceImpl extends BaseServiceImpl<Dept> implements DeptServic
     @Override
     public void insert(Dept dept) {
         deptDao.insert(dept);
-    }
-
-    @Override
-    public void delete(int[] ids) {
-        for (int id : ids) {
-            deptDao.delete(id);
-        }
     }
 
     @Override
